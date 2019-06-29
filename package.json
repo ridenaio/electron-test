@@ -1,13 +1,13 @@
 {
   "name": "electron-next-skeleton",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "main/index.js",
   "license": "MIT",
   "repository": "leo/electron-next-skeleton",
   "scripts": {
     "start": "run-electron .",
     "build": "next build renderer && next export renderer",
-    "dist": "GH_TOKEN= npm run build && build",
+    "dist": "npm run build && build",
     "pack": "npm run build && build --dir",
     "clean": "rm -rf renderer/out dist"
   },
