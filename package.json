@@ -5,23 +5,43 @@
   "license": "MIT",
   "repository": "leo/electron-next-skeleton",
   "scripts": {
-    "start": "electron .",
+    "start": "run-electron .",
     "build": "next build renderer && next export renderer",
-    "dist": "npm run build && bundle"
+    "dist": "GH_TOKEN= npm run build && build",
+    "pack": "npm run build && build --dir",
+    "clean": "rm -rf renderer/out dist"
   },
   "bundle": {
     "name": "ElectronNext"
   },
+  "build": {
+    "appId": "io.test",
+    "files": [
+      "**/*",
+      "!renderer",
+      "renderer/out"
+    ],
+    "win": {
+      "publish": [
+        "github"
+      ],
+      "target": [
+        "NSIS"
+      ]
+    }
+  },
   "devDependencies": {
-    "bundle": "^2.0.1",
-    "electron": "^1.7.10",
-    "next": "^4.2.1",
+    "electron": "^4.1.0",
+    "electron-builder": "^20.44.4",
+    "next": "^8.1.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.8.4",
+    "run-electron": "^1.0.0"
   },
   "dependencies": {
     "app-root-path": "^2.0.1",
-    "electron-is-dev": "^0.3.0",
-    "electron-next": "^3.1.3"
+    "electron-is-dev": "^1.0.1",
+    "electron-next": "^3.1.5",
+    "electron-updater": "^4.0.14"
   }
 }
